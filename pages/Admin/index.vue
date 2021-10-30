@@ -13,6 +13,7 @@
 import Post from "~/components/Posts/Post.vue";
 import BaseButton from "~/components/UI/BaseButton.vue";
 export default {
+  middleware: "auth",
   components: { Post, BaseButton },
   methods: {
     createPost() {

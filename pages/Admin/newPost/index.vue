@@ -1,5 +1,5 @@
 <template>
-  <post-detail :value="value" @save="onSave"></post-detail>
+  <post-detail :value="value" @save="onSave" @cancel="cancel"></post-detail>
 </template>
 
 <script>
@@ -18,14 +18,12 @@ export default {
   },
   methods: {
     onSave(post) {
-      axios
-        .post("https://nuxt-one-2f33d-default-rtdb.firebaseio.com/posts.json", {
-          ...post,
-          date: new Date()
-        })
-        .then(result => console.log(result))
-        .catch(e => console.log(e));
-      this.$router.push("/admin");
+      this.$store
+        .dispatch("addPost", post)
+        .then(() => this.$router.push("/admin"));
+    },
+    cancel() {
+      this.$router.go(-1);
     }
   }
 };

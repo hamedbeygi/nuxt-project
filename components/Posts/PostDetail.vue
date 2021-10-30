@@ -23,7 +23,9 @@
       </div>
       <div class="f2">
         <base-button type="submit" mode="black">Save</base-button>
-        <base-button @click="cancel" mode="red">Cancel</base-button>
+        <base-button @click="cancel" mode="red" type="button"
+          >Cancel</base-button
+        >
       </div>
     </form>
   </div>
